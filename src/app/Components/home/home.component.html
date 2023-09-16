@@ -1,0 +1,170 @@
+<div class="container-fluid">
+
+    <div class="row gy-4">
+        <div class="leftHomePage col-xl-7 pe-2">
+            <h1 class="titleWithRedUnderline py-1"> Most Sensational News of The Week </h1>
+            <small>
+                Our team of experienced journalists is committed to delivering unbiased reporting, ensuring that you get
+                a well-rounded perspective on the stories that matter most. Whether it's breaking news, politics,
+                business, entertainment, technology, or sports
+            </small>
+            <div class="mt-2">
+                <app-home-slider></app-home-slider>
+            </div>
+        </div>
+        <div class="rightHomePage col-xl-5 col-lg-12 ps-2">
+            <h2> Latest News </h2>
+            <div class="row gy-5">
+                <div *ngFor="let sportNew of sportNews | paginate: { itemsPerPage: 4, currentPage: p1, totalItems: totalLength, id: 'first' }" class="col-xl-6 col-md-6">
+                    <div>
+                        <a [href]="sportNew['url']" class="text-dark text-decoration-none" target="_blank">
+                            <img [src]="sportNew['urlToImage'] == null ? '../assets/world-breaking-news.jpg' : sportNew['urlToImage']"
+                                class="w-100 mb-2" style="height: 150px;" alt="">
+                            <h6 class="mb-1">{{sportNew['title'] | sliceString:9}}...</h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="footerSmall">By: <span class="mainColor">{{sportNew['author'] === null ?
+                                        'Unkown' : sportNew['author'] | sliceString:2}}</span> </small>
+                                <small class="footerSmall">{{sportNew['publishedAt'] | date:'dd-MM-yyyy'}}</small>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="my-pagination mt-3 py-5 d-flex justify-content-center align-items-center">
+                    <pagination-controls class="my-pagination" (pageChange)="p1 = $event" id="first"></pagination-controls>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row py-2 gy-4">
+        <div class="leftHomePage2 col-xl-8 pe-4">
+            <h2 class="titleWithBlueUnderline py-1 my-3">Business</h2>
+            <div *ngFor="let businessNew of businessNews" class="hzCard row">
+                <a [href]="businessNew['url']" target="_blank" class="row d-flex text-decoration-none ps-0 text-dark">
+                    <div class="col-md-4">
+                        <img [src]="businessNew['urlToImage'] == null ? '../assets/world-breaking-news.jpg' : businessNew['urlToImage']"
+                            class="w-100" alt="">
+                    </div>
+                    <div class="col-md-8 ps-2 d-flex flex-column justify-content-between">
+                        <div>
+                            <h5>{{businessNew['title'] | sliceString:10}}...</h5>
+                            <small class="mb-0">{{businessNew['content'] === null ? 'Unkown' :
+                                businessNew['content']}}</small>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-1">
+                            <small class="hzCardFooter">{{businessNew['author'] === null ? 'Unkown' :
+                                businessNew['author']}}</small>
+                            <small class="hzCardFooter">{{businessNew['publishedAt'] | date:'dd-MM-yyyy'}}</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="rightHomePage2 col-xl-4 col-md-6  ps-4">
+            <h2 class="titleWithPurpleUnderline py-1 my-3">Entertainment</h2>
+            <div *ngFor="let mainEntertainmentNew of mainEntertainmentNews" class="topCard">
+                <img [src]="mainEntertainmentNew['urlToImage'] == null ? '../assets/world-breaking-news.jpg' : mainEntertainmentNew['urlToImage']"
+                    class="w-100 mb-2" alt="">
+                <h5>{{mainEntertainmentNew['title'] === null ? 'Unkown' :
+                    mainEntertainmentNew['title'] | sliceString:10}}</h5>
+                <p class="pb-0 mb-3">{{mainEntertainmentNew['content'] === null ? 'Unkown' :
+                    mainEntertainmentNew['content'] | sliceString:30}}</p>
+                <!-- <div class="topCardSmall d-flex align-items-center">
+                    <small class="mainColor">{{mainEntertainmentNew['author'] === null ? 'Unkown' :
+                        mainEntertainmentNew['author']}}</small>
+                    <small class="ms-4 mainColor">{{mainEntertainmentNew['publishedAt'] | date:'dd-MM-yyyy'}}</small>
+                </div> -->
+
+            </div>
+            <div *ngFor="let entertainmentNew of entertainmentNews" class="bottomCards mb-2">
+                <a class="row text-dark text-decoration-none" [href]="entertainmentNew['url']" target="_blank">
+                    <div style="height: 90px;" class="col-xl-12 d-flex justify-content-between align-items-center">
+                        <div class="col-md-4">
+                            <img style="height: 90px;"
+                                [src]="entertainmentNew['urlToImage'] == null ? '../assets/world-breaking-news.jpg' : entertainmentNew['urlToImage']"
+                                class="w-100" alt="">
+                        </div>
+                        <div class="col-md-8 ps-2">
+                            <small>{{entertainmentNew['content'] | sliceString:15}}...</small>
+                            <!-- <small>{{entertainmentNew['publishedAt'] | date:'dd-MM-yyyy'}}</small> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row py-2 gy-4">
+        <div class="leftHomePage3 col-xl-8 pe-4">
+            <div>
+                <h2 class="titleWithGreenUnderline py-1 my-3">Technology</h2>
+                <div class="row gy-3">
+                    <div *ngFor="let techNew of techNews | paginate: { itemsPerPage: 6, currentPage: p2, totalItems: totalLength, id: 'second' }"
+                        class="cardSection3 col-md-4">
+                        <a class="text-dark text-decoration-none" [href]="techNew['url']" target="_blank">
+                            <img style="height: 190px;"
+                                [src]="techNew['urlToImage'] == null ? '../assets/world-breaking-news.jpg' : techNew['urlToImage']"
+                                class="w-100 mb-2" alt="">
+                            <h6>{{techNew['title']}}</h6>
+                            <!-- <div class="cardSection3Footer">
+                            <small >{{techNew['author'] === null ? 'Unkown' :
+                                techNew['author']}}</small>
+                            <small class="ms-4">{{techNew['publishedAt'] | date:'dd-MM-yyyy'}}</small>
+                        </div> -->
+                        </a>
+                    </div>
+                    <div class="my-pagination mt-3 py-5 d-flex justify-content-center align-items-center">
+                        <pagination-controls class="my-pagination" (pageChange)="p2 = $event" id="second"></pagination-controls>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="rightHomePage3 col-xl-4 ps-4">
+            <div>
+                <h2 class="titleWithGreenUnderline py-1 my-3">Health</h2>
+                <div *ngFor="let mainHealthNew of mainHealthNews" class="topCard">
+                    <a class="text-dark text-decoration-none" [href]="mainHealthNew['url']" target="_blank">
+                        <img [src]="mainHealthNew['urlToImage'] == null ? '../assets/world-breaking-news.jpg' : mainHealthNew['urlToImage']"
+                            class="w-100 mb-2" alt="">
+                        <h5>{{mainHealthNew['title'] === null ? 'Unkown' :
+                            mainHealthNew['title'] | sliceString:10}}</h5>
+                        <div class="topCardSmall d-flex align-items-center">
+                            <small>{{mainHealthNew['author'] === null ? 'Unkown' :
+                                mainHealthNew['author']}}</small>
+                            <small class="ms-4">{{mainHealthNew['publishedAt'] | date:'dd-MM-yyyy'}}</small>
+                        </div>
+                        <p class="pb-0">{{mainHealthNew['content'] === null ? 'Unkown' :
+                            mainHealthNew['content'] | sliceString:30}}</p>
+                    </a>
+                </div>
+                <!-- <div class="bottomCards bg-light mb-2">
+                    <div class="col-xl-12 d-flex justify-content-between align-items-center">
+                        <div class="col-md-4">
+                            <img src="../../../assets/world-breaking-news.jpg" class="w-100" alt="">
+                        </div>
+                        <div class="col-md-8 ps-2">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, autem?</p>
+                            <small>August 30, 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomCards bg-light mb-2">
+                    <div class="col-xl-12 d-flex justify-content-between align-items-center">
+                        <div class="col-md-4">
+                            <img src="../../../assets/world-breaking-news.jpg" class="w-100" alt="">
+                        </div>
+                        <div class="col-md-8 ps-2">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, autem?</p>
+                            <small>August 30, 2023</small>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+</div>

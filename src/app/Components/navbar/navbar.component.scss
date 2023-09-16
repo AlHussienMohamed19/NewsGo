@@ -1,0 +1,55 @@
+.navbar {
+    background-color: #DE0000;
+
+    .navbar-brand {
+        color: #fff;
+        font-weight: 500;
+    }
+}
+
+.navbarLinks {
+    width: fit-content;
+    margin: 0px auto;
+    height: 100%;
+
+    .navbarLink {
+        padding: 0 12px;
+        cursor: pointer;
+    }
+
+    a {
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.myActiveLink {
+    background-color: #222;
+    color: #DE0000;
+    padding: 18px 14px;
+    color: #fff;
+}
+
+@media screen and (max-width:1300px) {
+    .navbarMenu {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .SideNavButton {
+        display: inline !important;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .navbarLinks {
+        width: 100%;
+        padding: 8px 12px !important;
+    }
+    .navbarLink {
+        padding: 6px 12px !important;
+    }
+    .myActiveLink {
+        padding: 4px 8px;
+    }
+}

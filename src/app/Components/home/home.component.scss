@@ -1,0 +1,256 @@
+.container-fluid {
+    padding: 48px 72px;
+}
+
+
+.smallImg {
+    height: 130px;
+}
+
+.leftHomePage {
+    h1 {
+        font-size: 64px;
+        padding-bottom: 0px !important;
+    }
+
+    small {
+        font-size: 18px;
+        color: #6f6f6f;
+    }
+}
+
+
+.rightHomePage {
+    border-left: 1px solid #ccc;
+
+    h2 {
+        line-height: 1.4;
+        font-size: 36px;
+        border-bottom: 3px solid #DE0000;
+        margin-bottom: 16px;
+    }
+
+    .lightTxt {
+        color: #6f6f6f;
+    }
+
+    .mainColor {
+        color: #DE0000;
+    }
+
+    .footerSmall {
+        font-size: 12px;
+    }
+}
+
+.leftHomePage2 {
+    .titleWithBlueUnderline {
+        border-bottom: 3px solid rgb(34, 34, 255);
+    }
+
+    .hzCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 24px 0px;
+
+        .hzCardFooter {
+            font-size: 16px;
+            // font-weight: bold;
+            color: #DE0000;
+        }
+
+    }
+}
+
+
+.rightHomePage2 {
+    .titleWithPurpleUnderline {
+        border-bottom: 3px solid rgb(211, 34, 255);
+    }
+
+    .topCard {
+        img {
+            height: 300px;
+        }
+
+        .topCardSmall {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+
+.leftHomePage3 {
+    .titleWithGreenUnderline {
+        border-bottom: 3px solid rgb(3, 189, 0);
+    }
+}
+
+.rightHomePage3 {
+    .titleWithGreenUnderline {
+        border-bottom: 3px solid rgb(255, 122, 33);
+    }
+
+    .topCard {
+        img {
+            height: 300px;
+        }
+
+        .topCardSmall {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: #DE0000;
+}
+
+.ngx-pagination a {
+    text-decoration: none !important;
+}
+
+
+
+@media (width <=400px) {
+    .rightHomePage {
+        border-left: 0px;
+    }
+}
+
+@media (1330px >=width >=1200px) {
+    .leftHomePage {
+        h1 {
+            font-size: 48px;
+        }
+    }
+
+    .rightHomePage {
+        h2 {
+            font-size: 32px;
+        }
+    }
+
+    .container-fluid {
+        padding: 48px 36px;
+    }
+}
+
+@media (992px < width < 1200px) {
+    .container-fluid {
+        padding: 48px 56px;
+    }
+
+    .leftHomePage {
+        h1 {
+            font-size: 56px;
+        }
+
+        small {
+            font-size: 16px;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+    }
+
+    .rightHomePage {
+        h2 {
+            line-height: 1.4;
+            font-size: 32px;
+        }
+
+        .footerSmall,
+        small {
+            font-size: 16px;
+        }
+
+        h6 {
+            line-height: 1.2;
+            font-size: 24px;
+        }
+    }
+}
+
+@media (768px < width < 992px) {
+    .container-fluid {
+        padding: 48px 24px;
+    }
+
+    .leftHomePage {
+        h1 {
+            font-size: 48px;
+        }
+
+        small {
+            font-size: 16px;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+    }
+
+    .rightHomePage {
+        h2 {
+            line-height: 1.4;
+            font-size: 32px;
+        }
+
+        .footerSmall,
+        small {
+            font-size: 16px;
+        }
+
+        h6 {
+            line-height: 1.2;
+            font-size: 24px;
+        }
+    }
+}
+
+@media (width < 768px) {
+    .container-fluid {
+        padding: 48px 16px;
+    }
+
+    .leftHomePage {
+        h1 {
+            font-size: 36px;
+        }
+
+        small {
+            font-size: 14px;
+        }
+
+        h5 {
+            font-size: 14px;
+        }
+    }
+
+    .rightHomePage {
+        h2 {
+            line-height: 1.2;
+            font-size: 28px;
+        }
+
+        .footerSmall {
+            font-size: 16px;
+        }
+
+        h6 {
+            line-height: 1.4;
+            font-size: 20px;
+        }
+    }
+
+    .hzCard img {
+        margin-bottom: 8px;
+    }
+
+    .rightHomePage2 , .rightHomePage3 {
+        padding-left: 12px !important;
+    }
+}

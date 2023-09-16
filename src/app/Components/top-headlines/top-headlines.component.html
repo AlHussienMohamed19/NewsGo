@@ -1,0 +1,71 @@
+
+<div class="container-fluid">
+    <mat-sidenav-container [hasBackdrop]="false">
+
+        <mat-sidenav id="sideNavBar" #sideNav='matSidenav' *ngIf="sideNavButtonStatue">
+            <button *ngFor="let source of sources" class="sideNavBtn d-flex justify-content-start ps-2 py-1 w-100">
+                <a (click)="searchSourceById(source)" class="menuLinks text-decoration-none py-2 px-4">
+                    <i class="fa-regular fa-calendar-check fa-xl me-2"></i>
+                    <span>{{source.name}}</span>
+                </a>
+            </button>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="row cardsContainer g-4">
+                <div class="fakeContent col-md-3">
+
+                </div>
+
+                <div class="pageContent col-md-9">
+                    <div class="pageTitle mb-5">
+                        <h1>Top Headlines</h1>
+                        <div class="titleUnderLine"></div>
+                    </div>
+                    <div class="row g-4">
+
+                        <div *ngFor="let article of articles" class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="card h-100">
+                                <div class="w-100">
+                                    <div class="card-img-top p-3 hover14 column">
+                                        <div>
+                                            <figure>
+                                                <img [src]="article.urlToImage == null ? '../assets/world-breaking-news.jpg' :article.urlToImage "
+                                                class="w-100" alt="News Img">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <!-- <img [src]="article.urlToImage == null ? '../assets/world-breaking-news.jpg' :article.urlToImage "
+                                            class="card-img-top w-100 p-3" alt="News Img"> -->
+                                    <div class="card-body pt-0 pb-3 px-3">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="me-4 py-3 authorName mainColor">
+                                                <i class="fas fa-user me-2"></i>
+                                                <span>{{article.author === null ? 'Unkown' : article.author | sliceString:2}}</span>
+                                            </div>
+                                            <div class="me-4 py-3 publishDate mainColor">
+                                                <i class="far fa-calendar-alt me-2"></i>
+                                                <span>{{article.publishedAt | date:'dd-MM-yyyy'}}</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="card-title">{{article.title | sliceString:9}}...</h5>
+                                        <p class="card-text">{{article.description === null ? article.title : article.description |
+                                            sliceString:20}}...</p>
+                                        <a [href]="article.url" target="_blank" class="text-decoration-none readMore">
+                                            <small class="py-3">Read More...</small>
+                                        </a>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+</div>
+
+

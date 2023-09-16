@@ -1,0 +1,32 @@
+.footerSection {
+  background-image: url(../../../assets/4907157.jpg), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  background-blend-mode: overlay;
+  background-size: cover;
+  width: inherit;
+  padding: 56px 72px;
+}
+.footerSection .footerBody {
+  height: 100px;
+  color: #959595;
+}
+.footerSection h5 {
+  color: #fff;
+  margin-bottom: 24px;
+}
+.footerSection p {
+  color: #ccc;
+  margin: 6px 0px;
+}
+.footerSection p i {
+  margin-right: 8px;
+}
+
+.footerFooter {
+  color: #fff;
+  background-color: #DE0000;
+  padding: 6px;
+}
+.footerFooter span {
+  color: #d6adad;
+  font-weight: 800;
+}/*# sourceMappingURL=footer.component.css.map */

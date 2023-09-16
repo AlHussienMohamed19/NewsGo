@@ -1,0 +1,26 @@
+<owl-carousel-o [options]="customOptions">
+
+    <!-- <ng-container *ngFor="let slide of sliderNews">
+        <ng-template carouselSlide [id]="slide.id">
+            <img [src]="slide.urlToImage" class="w-100" [alt]="slide.alt" [title]="slide.title">
+        </ng-template>
+    </ng-container> -->
+
+    <ng-container *ngFor="let sliderNew of sliderNews">
+        <ng-template carouselSlide>
+            <img [src]="sliderNew.urlToImage == null ? '../assets/world-breaking-news.jpg' :sliderNew.urlToImage" class="slideImg position-relative w-100" [alt]="sliderNew.alt" [title]="sliderNew.title">
+            <div class="layer d-flex justify-content-center align-items-end">
+                <div class="layerContent">
+                    <h5>{{sliderNew.title | sliceString:9}}...</h5>
+                    <p> {{sliderNew.description === null ? sliderNew.title : sliderNew.description |
+                        sliceString:20}}...</p>
+                    <div class="footerOfLayer mb-2 d-flex justify-content-between align-items-center">
+                        <small>By : <span class="mainColor"> {{sliderNew.author === null ? 'Unkown' : sliderNew.author | sliceString:2}}</span> </small>
+                        <small> {{sliderNew.publishedAt | date:'dd-MM-yyyy'}} </small>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+
+</owl-carousel-o>
